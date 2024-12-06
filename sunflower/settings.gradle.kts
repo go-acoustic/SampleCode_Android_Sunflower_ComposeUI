@@ -21,9 +21,9 @@ pluginManagement {
     mavenCentral()
 
     // Connect SDK staging repo
-    maven {
-      url = uri("https://s01.oss.sonatype.org/content/groups/staging")
-    }
+//    maven {
+//      url = uri("https://s01.oss.sonatype.org/content/groups/staging")
+//    }
   }
 }
 

@@ -143,7 +143,7 @@ dependencies {
   implementation(libs.accompanist.systemuicontroller)
   debugImplementation(libs.androidx.compose.ui.tooling)
 
-  implementation ("io.github.go-acoustic:connect:10.4.22")
+  implementation (libs.connect)
 
 
   // Testing dependencies
