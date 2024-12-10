@@ -37,9 +37,12 @@ import com.google.samples.apps.sunflower.compose.plantdetail.PlantDetailsScreen
 fun SunflowerApp() {
     val navController = rememberNavController()
 
-
-    // Connect SDK Wrapper
-    ConnectWrapper(navController, modifier = Modifier) {
+    // Connect SDK Wrapper init with app key and post message URL
+    ConnectWrapper(
+        navController,
+        appKey = "e753a61c93ab4620aab64648505a96ea",
+        postMessageURL = "https://lib-us-2.brilliantcollector.com/collector/collectorPost"
+    ) {
         SunFlowerNavHost(
             navController = navController
         )

@@ -16,6 +16,8 @@
 
 package com.google.samples.apps.sunflower.compose.home
 
+import android.app.Activity
+import android.content.Context
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -41,6 +43,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,6 +52,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.acoustic.connect.android.connectmod.Connect
+import com.acoustic.connect.android.connectmod.composeui.customcomposable.LoggedText
 import com.google.samples.apps.sunflower.R
 import com.google.samples.apps.sunflower.compose.garden.GardenScreen
 import com.google.samples.apps.sunflower.compose.plantlist.PlantListScreen
@@ -73,6 +78,13 @@ fun HomeScreen(
     viewModel: PlantListViewModel = hiltViewModel(),
     pages: Array<SunflowerPage> = SunflowerPage.values()
 ) {
+    /**
+     * Load default config items for Connect SDK
+     */
+    LaunchedEffect(Unit) {
+        loadConfig()
+    }
+
     val pagerState = rememberPagerState(pageCount = { pages.size })
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
@@ -168,7 +180,7 @@ private fun HomeTopAppBar(
 ) {
     CenterAlignedTopAppBar(
         title = {
-                Text(
+            LoggedText(
                     text = stringResource(id = R.string.app_name),
                     style = MaterialTheme.typography.headlineSmall
                 )
@@ -202,4 +214,24 @@ private fun HomeScreenPreview() {
             pages = pages
         )
     }
+}
+
+// Load config items for Connect SDK
+fun loadConfig() {
+
+    // Test signal message
+    val data: HashMap<String?, Any?> = HashMap()
+    data["behaviorType"] = "orderConfirmation"
+    data["orderId"] = "145667"
+    data["orderSubtotal"] = 10
+    data["orderShip"] = 10
+    data["orderTax"] = "5.99"
+    data["orderDiscount"] = "10%"
+    data["currency"] = "USD"
+
+    Connect.logSignal(data)
+
+    // Test Custom event
+    val eventName = "TestEvent"
+    Connect.logCustomEvent(eventName)
 }

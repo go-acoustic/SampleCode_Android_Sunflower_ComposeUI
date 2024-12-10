@@ -32,6 +32,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import com.acoustic.connect.android.connectmod.composeui.customcomposable.LoggedText
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.google.samples.apps.sunflower.R
@@ -67,7 +68,7 @@ fun ImageListItem(name: String, imageUrl: String, onClick: () -> Unit) {
                     .height(dimensionResource(id = R.dimen.plant_item_image_height)),
                 contentScale = ContentScale.Crop
             )
-            Text(
+            LoggedText(
                 text = name,
                 textAlign = TextAlign.Center,
                 maxLines = 1,

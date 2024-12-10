@@ -83,6 +83,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.core.text.HtmlCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.acoustic.connect.android.connectmod.composeui.customcomposable.LoggedText
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.load.DataSource
@@ -395,7 +396,7 @@ private fun PlantDetailsToolbar(
                             contentDescription = stringResource(id = R.string.a11y_back)
                         )
                     }
-                    Text(
+                    LoggedText(
                         text = plantName,
                         style = MaterialTheme.typography.titleLarge,
                         // As title in TopAppBar has extra inset on the left, need to do this: b/158829169
@@ -490,7 +491,7 @@ private fun PlantInformation(
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier.padding(Dimens.PaddingLarge)) {
-        Text(
+        LoggedText(
             text = name,
             style = MaterialTheme.typography.displaySmall,
             modifier = Modifier
@@ -513,7 +514,7 @@ private fun PlantInformation(
                 )
         ) {
             Column(Modifier.fillMaxWidth()) {
-                Text(
+                LoggedText(
                     text = stringResource(id = R.string.watering_needs_prefix),
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier
@@ -525,7 +526,7 @@ private fun PlantInformation(
                     R.plurals.watering_needs_suffix, wateringInterval, wateringInterval
                 )
 
-                Text(
+                LoggedText(
                     text = wateringIntervalText,
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)

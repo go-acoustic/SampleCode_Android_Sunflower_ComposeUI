@@ -150,7 +150,7 @@ private fun GardenListItem(
             )
 
             // Plant name
-            Text(
+            LoggedText(
                 text = vm.plantName,
                 Modifier
                     .padding(vertical = marginNormal)
@@ -159,31 +159,31 @@ private fun GardenListItem(
             )
 
             // Planted date
-            Text(
+            LoggedText(
                 text = stringResource(id = R.string.plant_date_header),
                 Modifier.align(Alignment.CenterHorizontally),
                 style = MaterialTheme.typography.titleSmall
             )
-            Text(
+            LoggedText(
                 text = vm.plantDateString,
                 Modifier.align(Alignment.CenterHorizontally),
                 style = MaterialTheme.typography.labelSmall
             )
 
             // Last Watered
-            Text(
+            LoggedText(
                 text = stringResource(id = R.string.watered_date_header),
                 Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(top = marginNormal),
                 style = MaterialTheme.typography.titleSmall
             )
-            Text(
+            LoggedText(
                 text = vm.waterDateString,
                 Modifier.align(Alignment.CenterHorizontally),
                 style = MaterialTheme.typography.labelSmall
             )
-            Text(
+            LoggedText(
                 text = pluralStringResource(
                     id = R.plurals.watering_next,
                     count = vm.wateringInterval,
@@ -217,7 +217,7 @@ private fun EmptyGarden(onAddPlantClick: () -> Unit, modifier: Modifier = Modifi
             shape = MaterialTheme.shapes.medium,
             onClick = onAddPlantClick
         ) {
-            Text(
+            LoggedText(
                 text = stringResource(id = R.string.add_plant),
                 style = MaterialTheme.typography.titleSmall
             )

@@ -48,6 +48,7 @@ import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
+import com.acoustic.connect.android.connectmod.composeui.customcomposable.LoggedText
 import com.google.samples.apps.sunflower.R
 import com.google.samples.apps.sunflower.compose.plantlist.PhotoListItem
 import com.google.samples.apps.sunflower.data.UnsplashPhoto
@@ -138,7 +139,7 @@ private fun GalleryTopBar(
 ) {
     TopAppBar(
         title = {
-            Text(stringResource(id = R.string.gallery_title))
+            LoggedText(stringResource(id = R.string.gallery_title))
         },
         modifier = modifier.statusBarsPadding(),
         navigationIcon = {
