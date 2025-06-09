@@ -22,6 +22,8 @@ plugins {
   alias(libs.plugins.compose.compiler)
 }
 
+apply(from = "${project.rootDir}/connect-composables.gradle")
+
 android {
   compileSdk = libs.versions.compileSdk.get().toInt()
 
