@@ -210,7 +210,7 @@ private fun EmptyGarden(onAddPlantClick: () -> Unit, modifier: Modifier = Modifi
     ) {
         LoggedText(
             text = stringResource(id = R.string.garden_empty),
-            contentDescription = "mask_label",
+            maskLabel = "mask_label",
             style = MaterialTheme.typography.headlineSmall
         )
         Button(

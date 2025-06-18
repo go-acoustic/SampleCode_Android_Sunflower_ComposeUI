@@ -40,7 +40,7 @@ fun SunflowerApp() {
     // Connect SDK Wrapper init with app key and post message URL
     ConnectWrapper(
         navController,
-        appKey = "e753a61c93ab4620aab64648505a96ea",
+        appKey = "fa47722a7fef4bcd8677fd8d6d113a0d",
         postMessageURL = "https://lib-us-2.brilliantcollector.com/collector/collectorPost"
     ) {
         SunFlowerNavHost(
